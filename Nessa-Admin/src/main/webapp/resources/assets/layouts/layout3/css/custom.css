@@ -1,0 +1,33 @@
+.page-header .page-logo>a span {
+	font-size: 21px;
+    padding-top: 10px;
+    color: #29b4b6!important;
+    font-weight: 700;
+	display:block;
+	margin-top:15px;
+}
+g.highcharts-button, text.highcharts-credits {
+    display: none;
+}
+.page-footer .page-footer-inner {
+    float: none;
+    display: block;
+}
+.page-footer  a {
+	color:#fff;
+	margin:0 10px;
+}
+.margintop-sm {margin-top:30px;}
+.table .bg-header {
+	background: #36c6d3;
+    color: #fff;	
+}
+.table .label-success {background:#32CD32;}
+.np {padding-left:0px; padding-right:0px;}
+.welcome h3 {
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.welcome p {color:#fff; text-align: center;}

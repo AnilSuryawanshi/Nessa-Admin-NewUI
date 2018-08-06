@@ -1,0 +1,157 @@
+package com.connecticus.admin.daoImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
+
+import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.core.aggregation.*;
+import org.springframework.data.mongodb.core.mapreduce.GroupBy;
+import org.springframework.data.mongodb.core.mapreduce.GroupByResults;
+
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.group;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.sort;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.project;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.match;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.connecticus.admin.dao.AdminDao;
+import com.connecticus.admin.dto.ChartDataDto;
+import com.connecticus.admin.model.FailureLogModel;
+import com.connecticus.admin.model.LogfileModel;
+import com.connecticus.admin.model.ManagerModel;
+import com.connecticus.admin.model.ServiceLogModel;
+import com.connecticus.admin.model.cityModel;
+import com.connecticus.admin.model.deptModel;
+import com.connecticus.admin.model.nameModel;
+import com.connecticus.admin.model.versionModel;
+
+
+
+
+@Repository
+public class AdminDaoImpl implements AdminDao{
+
+	@Autowired
+	MongoTemplate mongoTemplate;
+	
+	private static final String FAILURELOG_COLLECTION="failurelog"; 
+	private static final String SERVICELOG_COLLECTION="servicelog";
+	private static final String FILEREAD_COLLECTION="fileread";
+	@Override
+	public Boolean saveFailureLog(FailureLogModel failureLogModel) {
+		
+		try {
+			mongoTemplate.insert(failureLogModel, FAILURELOG_COLLECTION);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	@Override
+	public List<ChartDataDto> getListServiceNameByGroup() {
+		// TODO Auto-generated method stub
+		List<ChartDataDto> chartDataDtoReturnList = new ArrayList<ChartDataDto>();
+		try {
+			Aggregation agg = newAggregation(group("serviceName").count().as("y"),
+					project("y").and("serviceName").previousOperation(), sort(Sort.Direction.ASC, "y"));
+
+			AggregationResults<ChartDataDto> groupResults = mongoTemplate.aggregate(agg, ServiceLogModel.class,
+					ChartDataDto.class);
+			for (ChartDataDto chartDataDto : groupResults) {
+				chartDataDto.setName(chartDataDto.getServiceName());
+				System.out.println("ServiceName=" + chartDataDto.getServiceName());
+				System.out.println("count=" + chartDataDto.getY());
+				chartDataDtoReturnList.add(chartDataDto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return chartDataDtoReturnList;
+	}
+
+	@Override
+	public List<FailureLogModel> getFailureLogList() {
+		// TODO Auto-generated method stub
+		List<FailureLogModel> failureLogList = null;
+		try {
+			failureLogList = mongoTemplate.findAll(FailureLogModel.class, FAILURELOG_COLLECTION);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return failureLogList;
+	}
+
+	@Override
+	public FailureLogModel getFailureLogByI(String id) {
+		// TODO Auto-generated method stub
+		FailureLogModel failureLogModel = null;
+		try {
+			failureLogModel = mongoTemplate.findById(id, FailureLogModel.class, FAILURELOG_COLLECTION);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return failureLogModel;
+	}
+
+	@Override
+	public void updateFailureLog(FailureLogModel failureLogModel) {
+		// TODO Auto-generated method stub
+		try {
+			mongoTemplate.save(failureLogModel, FAILURELOG_COLLECTION);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+
+	public boolean AddfilereadData(LogfileModel logfileModel) {
+		
+		try {
+			mongoTemplate.insert(logfileModel, FILEREAD_COLLECTION);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
+	
+	@Override
+	public List<versionModel> getAllversionRecord() {
+		// TODO Auto-generated method stub
+		return mongoTemplate.findAll(versionModel.class);
+	}
+	
+
+	@Override
+	public List<nameModel> getAllnameRecord() {
+		// TODO Auto-generated method stub
+		return mongoTemplate.findAll(nameModel.class);
+	}
+	
+	@Override
+	public List<cityModel> getAllcityRecord() {
+		// TODO Auto-generated method stub
+		return mongoTemplate.findAll(cityModel.class);
+	}
+	@Override
+	public List<deptModel> getAlldeptRecord() {
+		// TODO Auto-generated method stub
+		return mongoTemplate.findAll(deptModel.class);
+	}
+	@Override
+	public List<ManagerModel> getAllManagerRecord() {
+		// TODO Auto-generated method stub
+		return mongoTemplate.findAll(ManagerModel.class);
+	}
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <cache name="sampleCacheFromEhcacheXml"
+        maxElementsInMemory="100"
+        eternal="false"
+        timeToIdleSeconds="3000000"
+        timeToLiveSeconds="3000000"
+        overflowToDisk="false">
+     </cache>
+</ehcache>

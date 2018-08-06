@@ -1,0 +1,200 @@
+*{
+margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+.signup_fs{
+float: left;
+    height: 40px;
+}
+
+.signup_em{
+float: left;
+     height: 40px;
+}
+
+.login_un{
+
+   margin-top: 2%;
+     height: 40px;
+  
+}
+
+.login_pwd{
+float: left;
+    margin-top: 2%;
+    
+     height: 40px;
+}
+
+
+.login_cnfpwd{
+margin-left: 25px;
+    margin-top: 2%;
+     height: 40px;
+}
+
+.signup_heading{
+margin-left: 7%;
+    margin-top: 7%;
+    font-size: 30px;
+    color:#dd4166;
+}
+
+.signup_fields{
+margin-left: 7%;
+    margin-top: 2%;
+}
+
+
+.signup_ls{
+margin-left: 25px;
+    height: 40px;
+}
+
+
+.signup_mob{
+padding-left: 50px;
+     height: 40px;
+}
+
+
+.login_creds{
+margin-left: 7%;
+    margin-top: 2%;
+}
+
+
+
+hr{
+margin-top: 2%;
+
+}
+
+
+.iam{
+float: left;
+    font-size: 30px;
+    margin-left: 7%;
+  
+}
+
+.radio_btns{
+margin-top: 3%;
+line-height: 35px;
+}
+
+.submit_btn{
+width: 130px;
+    height: 35px;
+    background: #dd4166;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+   
+   
+}
+
+.submit{
+     margin-top: 2%;
+margin-left: 7%;
+    width: 130px;
+ 
+}
+
+
+.remember_me_login{
+float: left;
+}
+
+.forgot_pwd_login{
+float: left;
+}
+
+.username_login{
+margin-top: 4%;
+    margin-left: 5%;
+}
+
+.login_heading{
+font-size: 30px;
+    color: #dd4166;
+}
+.username_field_login{
+margin-top: 4%;
+}
+
+.password_login{
+margin-top: 3%;
+}
+
+.input_field{
+height: 40px;
+    width: 350px;
+}
+
+.checkbox{
+    height: 15px;
+   width: 50px;
+    line-height: 50px;
+    padding-top: 5px;
+}
+
+.remember_me_login{
+line-height: 40px;
+    
+}
+
+.forgot_password{
+color: #dd4166;
+    padding-top: 10px;
+    margin-left: 85px;
+    width: 120px;
+}
+
+
+.submit_btn1{
+    position: absolute;
+    color: white;
+background: #dd4166;
+    width: 120px;
+    height: 35px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 5px;
+    margin-top: 50px;
+   
+}
+
+
+.credentials{
+float: left;
+    height: 300px;
+    width: 400px;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.signup_div{
+float: left;
+    width: 800px;
+}
+
+
+.vertical_line{float: left;
+    height: 550px;
+border-left-style: solid;
+    border-left-color: #4c4c4c;
+    border-left-width: 1px;
+}
+
+.login_creds_head{
+color: #dd4166;
+    font-size: 25px;
+}
+
+hr{
+margin-left: 25px;
+}

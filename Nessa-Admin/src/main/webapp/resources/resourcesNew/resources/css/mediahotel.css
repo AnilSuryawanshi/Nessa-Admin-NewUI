@@ -1,0 +1,540 @@
+@media only screen and (min-width: 1400px) {
+  .flip .hotels_found_main .thumb_box_main{
+    width: 33.33%;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width: 1024px){
+  .booking_date_selection{
+    overflow-x: scroll;
+    overflow-y:hidden; 
+  }
+  .overflow_scroll_booking{
+    width: 140%;
+  }
+  .sort_sec_slide{
+    top: 270px;
+  }
+}
+@media screen and (min-width:320px) and (max-width: 1367px){
+  .width_1368{
+     width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+@media screen and (min-width:320px) and (max-width: 1024px){
+  .sort_sec_slide{
+    overflow-x:scroll;
+    overflow-y:hidden; 
+}
+/*.overflow_scroll{
+    width: 150%;
+}*/
+  .dropdown-menu {
+    min-width: 150px;
+  }
+  .nav_right_sec{
+    width: 100%;
+  }
+  .main{
+    margin-top: 95px;
+  }
+  input.span2, textarea.span2, .uneditable-input.span2{
+    width: 150px !important;
+  }
+}
+@media screen and (min-width:320px) and (max-width: 768px){
+  .view_summery_main.active{
+    right:20px;
+  }
+  .booking_date_selection{
+    height: auto;
+  }
+  .transport_planning .day_sec .small_head{
+    text-align: center;
+  }
+  .transport_planning .day_sec .top_content h6{
+    font-size: 11px;
+  }
+  .transport_planning .day_sec .place_pic{
+    width: 100px;
+    margin: 0 auto;
+    float: none;
+    height: 100px;
+  }
+  .transport_planning .day_sec .transport_detail{
+    width: 100%;
+    margin-top: 10px;
+    clear: left;
+  }
+  .transport_planning .day_sec .transport_detail .place_to_place{
+    max-width: 100%;
+    overflow-x:scroll;
+    overflow-y:hidden;
+     -webkit-overflow-scrolling: touch;  
+  }
+  .transport_planning .day_sec .small_icons{
+    width: 100px;
+    margin-right: 20px;
+  }
+    .transport_planning .day_sec .small_icons:last-child{
+   
+    margin-right: 0px;
+  }
+  .horizontal_scroll{
+    width: 300%;
+    overflow: auto;
+  }
+  .right_top .btn_plain_outline{
+    min-width: 157px;
+  }
+  .flight_dest_title{
+    height: auto;
+
+  }
+  .type_selection_detail label[for=favcity] select, .flight_dest_title label[for=favcity] select{
+    padding: 10px 20px;
+  }
+  .btn_plain_outline{
+    padding: 8px;
+  }
+  
+  .flight_dest_title{
+    width: 100%;
+    overflow-x:scroll; 
+    overflow-y:hidden; 
+    -webkit-overflow-scrolling: touch;
+  }
+  .flight_dest_title .calendar{
+    float: left;
+    clear: left;
+    margin-top: 10px;
+  }
+  .flight_dest_title .calendar .common_title{
+    display: none;
+  }
+  .common_title{
+    font-size: 11px;
+  }
+  .overflow_main{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+  .overflow_scroll{
+    width: 200%;
+  }
+    .hotel_add .add_symbol{
+      margin-right: 20px;
+    }
+  .hotel_add .red_btn_arrow{
+    margin-top: 10px;
+    float: left;
+  }
+  .left_60_width .add_symbol{
+    float: left;
+  }
+  .loved_because .available_amenity{
+    width: 33.33%;
+  }
+  .loved_because .last_coloumn{
+    border-top: #eaeaea solid 1px;
+    /* padding-left: 50px; */
+    padding-top: 20px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    float: none;
+    border-left:none;
+    padding-left: 0;
+  }
+  .loved_because .available_amenity div{
+    display: inline-block;
+  }
+  .booking_tab .right_40_width{
+    position: inherit;
+
+  }
+  .bg_overlay.active{
+    top: 0;
+  }
+  .sort_sec_slide.active{
+    width: 100%;
+    overflow: scroll;
+     -webkit-overflow-scrolling: touch;
+  }
+.sort_sec_slide .overflow_scroll{
+  width: 300%;
+}
+  .right_40_width{
+        -webkit-box-shadow: none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+  }
+  .image_view{
+    display: none;
+  }
+  .booking_steps .left_60_width{
+    display: none;
+  }
+  .hotel_detail .left_60_width{
+    display: block !important;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+    height: auto;
+  }
+  .dropdown-menu {
+    min-width: 90% !important;
+  }
+  .btn_plain{
+    padding: 10px 20px;
+  }
+  .bg_overlay_full.active{
+    position: fixed;
+  }
+  .view_summery_main{
+    width: 90%;
+    right: -90%;
+    position: fixed;
+    top: 130px;
+    height: 350px;
+    overflow: scroll;
+  }
+  .sort_btn{
+    padding: 8px 20px;
+  }
+  .old_amount{
+    float: right;
+  }
+  .cd-tabs nav{
+    width:100%;
+    overflow-x: scroll;
+    max-height: 90px;
+    overflow-y:hidden 
+  }
+/*  .bottom_fixed{
+    position: inherit;
+  }*/
+  input.span2, textarea.span2, .uneditable-input.span2 {
+  width: 100% !important;
+  margin-bottom: 10px;
+}
+.destination_names{
+  display: none;
+}
+  .booking_steps .cd-tabs{
+    padding: 0 10px;
+  }
+  .section_box .destination, .section_box .budget, .section_box .themes {
+    /* display: inline-block; */
+    width: 33.33%;
+    float: left;
+    text-align: center;
+  }
+  .section_box .left_sec a{
+    float: none;
+    padding: 0;
+  }
+  .bottom_fixed{
+    width: 100%;
+  }
+  .share{
+    padding: 18px !important;
+    background-position: -192px -155px;
+  }
+    .bottom_fixed.active .share_icons{
+      height: 35px;
+      right: 56px;
+    }
+  .bottom_fixed.active .share_icons.social{
+        min-height: 35px;
+        padding: 4px;
+  }
+  
+  .checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label{
+    font-size: 11px;
+  }
+  .booking_steps .cd-tabs-navigation li .price_show{
+    display: block;
+    font-size: 15px;
+  }
+  .booking_steps .cd-tabs-navigation a, .booking_steps .cd-tabs-navigation .price_Show{
+    padding: 19px 2px;
+  }
+  .booking_steps .cd-tabs-navigation li .price_show span{
+    float: none;
+  }
+  .right_40_width header .amount::before{
+        background-position: -81px -165px;
+  }
+  .right_40_width{
+    height: auto;
+    overflow: visible;
+  }
+  .right_40_width,.left_60_width{
+    width: 100%;
+  }
+  .banner_nav{
+    display: none;
+  }
+  a.red_btn_arrow
+  {
+    padding: 8px 20px;
+  }
+  .booking_steps .cd-tabs-navigation a{
+    width: 100%;
+  }
+    .booking_steps  .cd-tabs-navigation li{
+      width: 11%;
+    }
+    .booking_steps .cd-tabs-navigation{
+      width: 260%;
+    }
+  .mobile_icon{
+    background-image: url('../images/icons.png');
+    width: 20px;
+    height: 36px;
+    background-position: -258px -113px;
+  }
+  .nav_right_sec.active .mobile_icon{
+    background-image: url('../images/icons-hover.png');
+  }
+  .itineraries li .top_content .right,.itineraries li .bottom_content .customize,.itineraries li .bottom_content .view{
+    float: left;
+  }
+
+  .social{
+    padding: 10px;
+  }
+  .dot,.social .social_icons .twitter, .social .social_icons .fb, .social .social_icons .google{
+    display: inline-block;
+    float: none;
+    
+  }
+  .social .social_icons .twitter, .social .social_icons .fb, .social .social_icons .google{
+    margin: 0 10px;
+  }
+  .social p{
+    text-align: center;
+    float: none;
+  }
+  .social .social_icons{
+    float: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+  .right_sec a.red_btn_arrow{
+   padding: 15px 40px;
+  }
+  .section_box .left_sec a{
+    font-size: 11px;
+  }
+  .nav_right_sec a{
+    font-size: 10px;
+  }
+  p{
+    font-size: 10px;
+  }
+  .nav_right_sec.active{
+    padding-bottom: 160px;
+  }
+  .nav_right_sec .partner, .nav_right_sec .login, .nav_right_sec .help{
+    float: none;
+    display: none;
+    text-align: left;
+    margin:10px 0;
+    opacity: 0;
+    border-bottom: #eeeeee solid 1px;
+    padding-bottom: 15px;
+  }
+  .nav_right_sec.active .partner, .nav_right_sec.active .login, .nav_right_sec.active .help{
+    opacity: 1 ;
+    display: block;
+  }
+  .subscribe{
+      max-width: 100%;
+    margin: 30px auto 10px auto;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  }
+  .subscribe input[type=submit]{
+        display:inherit;
+    margin:10px auto 0 auto;
+    overflow: hidden;
+    width: 150px;
+  }
+  .subscribe input[type=email]{
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  .itineraries li{
+    width: 50%;
+  }
+  .left_40_width{
+    width: 100%;
+    padding-right: 0;
+  }
+  .video_sec{
+    height: 100%;
+  }
+  .right_60_width{
+    width: 100%;
+  }
+  .nav_right_sec{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+.width_1000{
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+}
+.width_1368{
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+}
+.flight_search .hotel_detail .prof{
+  left: 0;
+  width: 50px;
+}
+.section_title{
+  position: inherit;
+  bottom: inherit;
+  margin-top: 15px;
+}
+.section_box .left_sec,.section_box .greay_bg{
+  width: 100%;
+}
+.section_box .left_sec,.section_box .right_sec{
+  padding: 30px 10px;
+}
+.section_box .left_sec{
+  border-top: #eeeeee solid 1px;
+  border-right: #eeeeee solid 1px;
+  border-left: #eeeeee solid 1px;
+   -webkit-border-radius: 3px; 
+  -moz-border-radius: 3px; 
+  border-radius: 3px;
+}
+.section_title h6{
+  color: #484444;
+}
+.or{
+  padding: 6px 0;
+    width: 30px;
+    height: 30px;
+    margin: -15px;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+}
+
+@media screen and (min-width:501px) and (max-width: 768px){
+
+  h1{
+  font-size: 30px;
+  line-height: 30px;
+}
+h2{
+  font-size: 20px;
+  line-height: 20px;
+}
+h3{
+  font-size: 17px;
+  line-height: 17px;
+}
+h4{
+  font-size: 15px;
+  line-height: 15px;
+}
+h5{
+  font-size: 13px;
+  line-height: 13px;
+}
+h6{
+  font-size: 12px;
+  line-height: 12px;
+}
+}
+@media screen and (min-width:320px) and (max-width: 500px){
+  .sort_tab{
+    float: left;
+    margin-top: 6px;
+    clear: left;
+    margin-bottom: 15px;
+  }
+  .map .left_60_width{
+    height: 300px;
+  }
+  .sort_tab a{
+    padding: 0 10px 0 0;
+  }
+h1{
+  font-size: 22px;
+  line-height: 22px;
+}
+h2{
+  font-size: 18px;
+   line-height: 18px;
+}
+h3{
+  font-size: 15px;
+   line-height: 15px;
+}
+h4{
+  font-size: 14px;
+   line-height: 13px;
+}
+h5{
+  font-size: 13px;
+   line-height: 11px;
+}
+h6{
+  font-size: 11px;
+   line-height: 10px;
+}
+}
+@media screen and (min-width:320px) and (max-width: 640px){
+  .transport_planning_btns .red_btn_arrow{
+    float: none;
+    margin-top: 10px !important;
+  }
+  .overflow_title_scroll{
+    width: 250%;
+  }
+  .flight_search .overflow_scroll{
+    width: 300%;
+  }
+  .search_section{
+    width: 60%;
+  }
+  .map .left_60_width{
+    height: 350px;
+  }
+}
+@media screen and (min-width:641px) and (max-width: 768px){
+   .map .left_60_width{
+    height: 400px;
+  }
+  .overflow_title_scroll{
+    width: 250%;
+  }
+}
+@media screen and (min-width:769px) and (max-width: 1024px){
+
+  .booking_steps .cd-tabs-navigation li span div{
+    float: none;
+  }
+  .booking_steps .cd-tabs-navigation li span{
+    display: block;
+  }
+}

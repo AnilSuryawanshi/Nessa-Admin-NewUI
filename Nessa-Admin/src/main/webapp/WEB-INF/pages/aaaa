@@ -1,0 +1,263 @@
+
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+        <div class="page-wrapper">
+           <%@include file="header_low.jsp" %>  
+            <!-- END HEADER -->
+            <!-- BEGIN HEADER & CONTENT DIVIDER -->
+            <div class="clearfix"> </div>
+            <!-- END HEADER & CONTENT DIVIDER -->
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+                 <%@include file="sideBar.jsp" %>
+                <!-- END SIDEBAR -->
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+                    <div class="page-content">
+                        <!-- BEGIN PAGE HEADER-->
+                        
+                        <!-- BEGIN PAGE BAR -->
+                        <!-- <div class="page-bar">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span>Failure Log List</span>
+                                </li>
+                            </ul>
+                            
+                        </div> -->
+                        <!-- END PAGE BAR -->
+                        <!-- END PAGE HEADER-->
+                       <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BEGIN PORTLET-->
+                                <div class="portlet light bordered margintop-sm">
+                                    <div class="portlet-title">
+                                        <div class="caption font-dark">
+                                            <i class="icon-settings font-dark"></i>
+                                            <span class="caption-subject bold uppercase"> Failure Log List</span>
+                                        </div>
+                                    </div>
+                                    <%-- <div class="portlet-body">
+                                        <div class="table-toolbar">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6">
+                                                <div class="dataTables_length" id="example_1_length">
+                                                <label>Show <select name="example_1_length" aria-controls="example" class="form-control input-sm input-xsmall input-inline"><option value="5">5</option><option value="15">15</option><option value="20">20</option><option value="-1">All</option></select></label></div>
+                                                
+                                                   <!--  <div class="btn-group">
+                                                        <button id="sample_editable_1_new" class="btn sbold green"> Add New
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div> -->
+                                                </div>
+                                                 <div class="col-md-6 col-sm-6">
+                                                 <div id="sample_1_filter" class="dataTables_filter">
+                                                 <label>Search:<input type="search" class="form-control input-sm input-small input-inline" placeholder="" aria-controls="sample_1"></label>
+                                                 </div>
+                                                 </div>
+                                               
+                                            </div>
+                                        </div>
+										<table id="sample_1" class="table table-bordered table-striped table-hover dataTable no-footer" width="100%" height="70%" role="grid" aria-describedby="example_info" style="width: 100%;">
+											<thead>
+											  <tr class="bg-header" role="row"><th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Application Name: activate to sort column descending" style="width: 133px;">Application Name</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="IP Address: activate to sort column ascending" style="width: 84px;">IP Address</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Nessa Question: activate to sort column ascending" style="width: 122px;">Nessa Question</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="User Utterence: activate to sort column ascending" style="width: 203px;">User Utterence</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Action Status: activate to sort column ascending" style="width: 102px;">Action Status</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Remark: activate to sort column ascending" style="width: 170px;">Remark</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 52px;">Action</th></tr>
+											</thead>
+											<tbody>
+											  <c:forEach var="failureLog" items="${failureLogList}">
+									      <tr>
+									        <td>${failureLog.applicationName}</td>
+									        <td>${failureLog.ipAddress}</td>
+									        <td>${failureLog.nessaQuestion}</td>
+									        <td>${failureLog.userUtterence}</td>
+									       
+									        <td><select name="actionStatus" id="actionStatusID">
+												<option value="${failureLog.actionStatus}" selected="">
+												</option><option value="New">New
+												</option><option value="Inprogress">Inprogress
+												</option><option value="Completed">Completed
+												</option><option value="On Hold">On Hold
+												</option><option value="Reject">Reject
+												</option></select>
+											</td>
+											<td><input type="text" id="remarkID${failureLog.id}" name="remark" value="${failureLog.remark}"></td>
+																				<td><a  onclick="updateRecord('${failureLog.id}')" >Submit</a></td>
+									      </tr>
+    										</c:forEach>
+											</tbody>
+										  </table>
+										<div class="row">
+										<div class="col-md-5 col-sm-5"><div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite">Showing 1 to 6 of 6 records</div></div>
+										<div class="col-md-7 col-sm-7"><div class="dataTables_paginate paging_bootstrap_full_number" id="sample_1_paginate">
+										<ul class="pagination" style="visibility: visible;"><li class="prev disabled"><a href="#" title="First"><i class="fa fa-angle-double-left"></i></a></li><li class="prev disabled"><a href="#" title="Prev"><i class="fa fa-angle-left"></i></a></li><li class="active"><a href="#">1</a></li><li class="next disabled"><a href="#" title="Next"><i class="fa fa-angle-right"></i></a></li><li class="next disabled"><a href="#" title="Last"><i class="fa fa-angle-double-right"></i></a></li></ul>
+										</div>
+										</div>
+										</div>
+                                    </div> --%>
+                                    
+                                    <div class="portlet-body">
+                                        <div class="table-toolbar">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                   <!--  <div class="btn-group">
+                                                        <button id="sample_editable_1_new" class="btn sbold green"> Add New
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div> -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="btn-group pull-right">
+                                                        <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">Tools
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu pull-right">
+                                                            <li>
+                                                                <a href="javascript:;">
+                                                                    <i class="fa fa-print"></i> Print </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;">
+                                                                    <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;">
+                                                                    <i class="fa fa-file-excel-o"></i> Export to Excel </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+										<div id="sample_1_wrapper" class="dataTables_wrapper no-footer"><div class="row"><div class="col-md-6 col-sm-6"><div class="dataTables_length" id="sample_1_length"><label>Show <select name="sample_1_length" aria-controls="sample_1" class="form-control input-sm input-xsmall input-inline"><option value="5">5</option><option value="15">15</option><option value="20">20</option><option value="-1">All</option></select></label></div></div><div class="col-md-6 col-sm-6"><div id="sample_1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm input-small input-inline" placeholder="" aria-controls="sample_1"></label></div></div></div><div class="table-scrollable"><table id="sample_1" class="table table-bordered table-striped table-hover dataTable no-footer" width="100%" height="70%" role="grid" aria-describedby="sample_1_info" style="width: 100%;">
+											<thead>
+											  <tr class="bg-header" role="row"><th class="sorting_disabled" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Application Name" style="width: 105px;">Application Name</th><th class="sorting_asc" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" aria-label="IP Address: activate to sort column descending" style="width: 74px;" aria-sort="ascending">IP Address</th><th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" aria-label="Nessa Question: activate to sort column ascending" style="width: 92px;">Nessa Question</th><th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" aria-label="User Utterence: activate to sort column ascending" style="width: 136px;">User Utterence</th><th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" aria-label="Action Status: activate to sort column ascending" style="width: 86px;">Action Status</th><th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" aria-label="Remark: activate to sort column ascending" style="width: 153px;">Remark</th><th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 49px;">Action</th></tr>
+											</thead>
+											<tbody>
+											<tr role="row" class="odd">
+												<td class="sorting_1"></td>
+												<td class="sorting_1">192.168.1.17</td>
+												<td>How may I help you?</td>
+												<td>where is connecticus</td>
+												<td><select name="actionStatus" id="actionStatusID5965d490ddf3a2f5ef6d2666">
+												<option value="" selected="">
+												</option><option value="New">New
+												</option><option value="Inprogress">Inprogress
+												</option><option value="Completed">Completed
+												</option><option value="On Hold">On Hold
+												</option><option value="Reject">Reject
+												</option></select></td>
+
+												<td><input type="text" id="remarkID5965d490ddf3a2f5ef6d2666" name="remark" value=""></td>
+												<td><a onclick="updateRecord('5965d490ddf3a2f5ef6d2666')">Submit</a></td>
+											  </tr><tr role="row" class="even">
+												<td class="sorting_1"></td>
+												<td class="sorting_1">192.168.1.17</td>
+												<td>How may I help you?</td>
+												<td>where is connecticus</td>
+												<td><select name="actionStatus" id="actionStatusID5965d547ddf3a2f5ef6d2667">
+												<option value="" selected="">
+												</option><option value="New">New
+												</option><option value="Inprogress">Inprogress
+												</option><option value="Completed">Completed
+												</option><option value="On Hold">On Hold
+												</option><option value="Reject">Reject
+												</option></select></td>
+
+												<td><input type="text" id="remarkID5965d547ddf3a2f5ef6d2667" name="remark" value=""></td>
+												<td><a onclick="updateRecord('5965d547ddf3a2f5ef6d2667')">Submit</a></td>
+											  </tr><tr role="row" class="odd">
+												<td class="sorting_1"></td>
+												<td class="sorting_1">192.168.1.17</td>
+												<td>How may i help you?</td>
+												<td>waht is your name dear</td>
+												<td><select name="actionStatus" id="actionStatusID5965dba1ddf35e4458c7e324">
+												<option value="" selected="">
+												</option><option value="New">New
+												</option><option value="Inprogress">Inprogress
+												</option><option value="Completed">Completed
+												</option><option value="On Hold">On Hold
+												</option><option value="Reject">Reject
+												</option></select></td>
+
+												<td><input type="text" id="remarkID5965dba1ddf35e4458c7e324" name="remark" value=""></td>
+												<td><a onclick="updateRecord('5965dba1ddf35e4458c7e324')">Submit</a></td>
+											  </tr><tr role="row" class="even">
+												<td class="sorting_1"></td>
+												<td class="sorting_1">192.168.1.17</td>
+												<td>How may i help you?</td>
+												<td>where is my office?</td>
+												<td><select name="actionStatus" id="actionStatusID5965e81bddf324c9ef96b739">
+												<option value="" selected="">
+												</option><option value="New">New
+												</option><option value="Inprogress">Inprogress
+												</option><option value="Completed">Completed
+												</option><option value="On Hold">On Hold
+												</option><option value="Reject">Reject
+												</option></select></td>
+
+												<td><input type="text" id="remarkID5965e81bddf324c9ef96b739" name="remark" value=""></td>
+												<td><a onclick="updateRecord('5965e81bddf324c9ef96b739')">Submit</a></td>
+											  </tr><tr role="row" class="odd">
+												<td class="sorting_1"></td>
+												<td class="sorting_1">192.168.1.17</td>
+												<td>How may i help you?</td>
+												<td>how are you Nessa are you fine?</td>
+												<td><select name="actionStatus" id="actionStatusID5965f663ddf3ec27a28b556d">
+												<option value="" selected="">
+												</option><option value="New">New
+												</option><option value="Inprogress">Inprogress
+												</option><option value="Completed">Completed
+												</option><option value="On Hold">On Hold
+												</option><option value="Reject">Reject
+												</option></select></td>
+
+												<td><input type="text" id="remarkID5965f663ddf3ec27a28b556d" name="remark" value="common Que"></td>
+												<td><a onclick="updateRecord('5965f663ddf3ec27a28b556d')">Submit</a></td>
+											  </tr></tbody>
+										  </table></div><div class="row"><div class="col-md-5 col-sm-5"><div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite">Showing 1 to 5 of 6 records</div></div><div class="col-md-7 col-sm-7"><div class="dataTables_paginate paging_bootstrap_full_number" id="sample_1_paginate"><ul class="pagination" style="visibility: visible;"><li class="prev disabled"><a href="#" title="First"><i class="fa fa-angle-double-left"></i></a></li><li class="prev disabled"><a href="#" title="Prev"><i class="fa fa-angle-left"></i></a></li><li class="active"><a href="#">1</a></li><li><a href="#">2</a></li><li class="next"><a href="#" title="Next"><i class="fa fa-angle-right"></i></a></li><li class="next"><a href="#" title="Last"><i class="fa fa-angle-double-right"></i></a></li></ul></div></div></div></div>
+										
+                                    </div> 
+                                </div>
+                                <!-- END PORTLET-->
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <!-- END CONTENT BODY -->
+                </div>
+                <!-- END CONTENT -->
+                
+            </div>
+            <!-- END CONTAINER -->
+            </div>
+             <!-- BEGIN CORE PLUGINS -->
+        <script src="${pageContext.request.contextPath}/resources/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="${pageContext.request.contextPath}/resources/assets/global/scripts/datatable.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="${pageContext.request.contextPath}/resources/assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="${pageContext.request.contextPath}/resources/assets/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="${pageContext.request.contextPath}/resources/assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+            </body>

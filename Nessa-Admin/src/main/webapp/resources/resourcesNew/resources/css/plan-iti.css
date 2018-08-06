@@ -1,0 +1,282 @@
+.side_bar{
+width: 9%;
+float: left;
+height: 500px; 
+}
+
+
+
+
+.enquiry_id{
+padding-left: 20px;
+}
+
+
+.destinations{
+padding-left: 20px;
+}
+
+
+.enquiry_summary{
+padding-left: 20px;
+}
+
+
+.date_of_enquiry{
+padding-left: 20px;
+}
+
+
+.travel_date{
+padding-left: 20px;
+}
+
+.status{
+padding-left: 20px;
+}
+
+
+
+.e_id{
+padding-left: 20px;
+}
+
+
+.destinations_workq{
+padding-left: 20px;
+}
+
+
+#plan-iti.active{
+color:#dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.plan_itinerary{
+padding: 20px;;
+    text-align: center;
+    color: #dd4166;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+
+}
+
+.work_queue{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+.leads{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+.payment_tracking{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+.reports{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+.ready-package{
+margin-top:1%;
+}
+.learn_more{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+
+.plan_itinerary:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.work_queue:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.leads:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.payment_tracking:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.reports:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.learn_more:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.page-head{
+font-size: 25px;
+    margin-left: 11%;
+    margin-top: 3%;
+    color:#dd4166;
+}
+
+.body-iti{
+padding-top: 1%;
+    padding-left: 2%;
+}
+.info-head{
+font-size: 20px;
+}
+
+.h-line{
+width:80%
+}
+
+.line1{
+margin-left: 11%;
+   
+}
+
+
+.customer-full-name{
+margin-top: 1%;
+}
+
+.customer-email{
+float: left;
+    margin-top:1% 
+}
+
+.customer-country{
+float: left;
+    margin-top: 1%;
+}
+
+.customer-origin{
+ margin-top: 1%;
+}
+
+.customer-city{
+float: left;
+     margin-top: 1%;
+}
+
+.customer-mob{
+margin-top:1%;
+    margin-left:2%; 
+      
+        
+}
+
+.customer-adults{
+float: left;
+    margin-top: 1%;
+    
+}
+
+.customer-child{
+float: left;
+    
+}
+
+.customer-child-small{
+ margin-top: 1%;
+}
+
+.dest-info-head{
+font-size: 20px;
+}
+
+.input-fields{
+margin-bottom: 1%;
+    margin
+}
+
+.start-date{
+float: left;
+}
+
+.start-end-date{
+margin-top:1%;
+}
+
+.add-dest{
+width:270px;
+    margin-top:2%;
+}
+
+#dpd1{
+float: left;
+}
+
+.mainbody{
+margin-left: 2%;
+    margin-top: 4%;
+}
+
+.check{
+float: left;
+}
+
+.dest-info-head{
+margin-top: 1%;
+}
+.start-dest{
+margin-top:1%;
+}
+#dpd1{
+height: 12px;
+    width: 170px;
+}
+
+#dpd2{
+height: 12px;
+    width: 170px;
+}
+
+.next-btn{
+    color: white;
+    background:#dd4166;
+    text-align:center;
+width:180px;
+   
+    margin-top: 2%;
+   height: 35px;
+    padding-top: 9px;
+    border-radius: 5px;
+    
+}
+
+.next-btn-d{
+width:150px;
+   
+      margin-top: 2%;
+}

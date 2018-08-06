@@ -1,0 +1,276 @@
+ select{
+    width:50px;
+    }
+    .att-guide{
+  
+        color:#dd4166;
+        font-size:15px;
+       width: 40%;
+        
+        margin-bottom:2%;
+       
+    }
+    
+    .att-guide-head{
+    float:left;
+        width:200px;
+    }
+    .duration-att{
+    float:left;
+        margin-right:6.5%;
+        
+      
+    }
+    
+    .details-att{
+    
+        float:left;
+    }
+    .prev-att{
+    width:200px;
+        color:white;
+      text-align:center;
+      position:relative;
+         margin-bottom:4%;
+       
+    }
+    .previous-att{
+    width:200px;
+        background:#dd4166;
+  margin-left:2%;
+       height:35px;
+        color:white;
+        padding-top:10px;
+        text-align:center;
+        position:absolute;
+         border-radius:5px;
+       
+    }
+
+.box-bottom{
+margin-top:2%;
+}
+    
+      .add-iti-att{
+    width:200px;
+        background:#dd4166;
+  margin-left:43%;
+        height:35px;
+           padding-top:10px;
+        color:white;
+          text-align:center;
+           position:absolute;
+           border-radius:5px;
+    }
+    
+    
+      .nxt-att{
+    width:200px;
+        background:#dd4166;
+  margin-left:85%;
+           height:35px;
+           padding-top:10px;
+       text-align:center;
+        color:white;
+          border-radius:5px;
+    }
+    .back-att{
+    color:white;
+    }
+    .back1-att{
+     width:200px;
+        background:#dd4166;
+  margin-left:2%;
+        margin-top:4%;
+           height:35px;
+           padding-top:10px;
+       text-align:center;
+        color:white;
+        position:absolute;
+          border-radius:5px;
+    }
+    
+
+    
+   
+   
+    
+    
+    .time_req{
+    height:40px;
+    }
+    
+    .misc-opt{
+    float:right;
+        width:362px;
+       
+    }
+    
+    .ticket_number{
+    float:left;
+        width:370px;
+        height:auto;
+       
+    }
+    
+
+.timings{
+float: left;
+    width: 50%;
+}    
+
+
+    .travel-tips{
+    float:left;
+        margin-right:3%;
+    }
+    
+    .open{
+    width:95px;
+    }
+    
+    .cust-info{
+    float:left;
+        margin-right:45%;
+        
+    }
+    .customer{
+    background:#4f81bd;
+        height:60px;
+        line-height:20px;
+         padding-left:2%; 
+       border-style:solid;
+        border-color:#385d8a;
+       
+    }
+    .for-cust{
+        padding-left:2%; 
+    background:#8064a2;
+        color:white; 
+        line-height:25px;
+        font-size:15px;
+         border-style:solid;
+        border-color:#5c4776;
+    }
+    
+    .mod-body{
+    
+        margin:2%;
+        
+    }
+    
+    .iti-info{
+    float:left;
+       margin-right:34%;
+         background:#8064a2;
+    }
+    
+    .change-cust-btn{
+    background:#3098b3;
+        color:white;
+        padding:20px;
+        padding-left:40px;
+        padding-right:40px;
+         border-radius:5px;
+    }
+    
+    .change-cust{
+    margin-left:15%;
+        padding-top:3.5%;
+        
+    }
+    
+    .change-iti-btn{
+     background:#3098b3;
+        color:white;
+        padding:5px;
+        padding-left:40px;
+        padding-right:40px;
+        border-radius:5px;
+    }
+    
+    
+    
+    .iti-info-change{
+    background:#8064a2;
+         padding-left:2%; 
+         color:white; 
+        line-height:25px;
+       font-weight:normal;
+    }
+    
+    
+    .continue{
+    text-align:center;
+         width:100%;
+        margin-top:5%;
+    }
+    .continue-btn
+    {
+         border-radius:5px;
+   font-size:15px;
+        
+        background:#dd4166;
+        color:white;
+        padding:15px;
+        padding-left:50%;
+        padding-right:35%;
+       
+       
+    }
+
+.cost-per-pax-c1{
+float: left;
+}
+
+ .adult{
+        width:30px;
+            height:25px;
+        }
+     .child{
+        width:30px;
+            height:25px;
+        }
+    .senior{
+   width:30px;
+            height:25px;
+    }
+
+@media screen and (min-width: 1024px){
+  /* some CSS here */
+.booking_tab{
+	width: 135%;
+	overflow-x: auto;
+    }
+}
+    
+    @media screen and (min-width: 1280px){
+  /* some CSS here */
+    .booking_tab{
+    width: 108%;
+        overflow-x: auto;
+    
+    }
+}
+    
+    @media screen and (min-width: 1366px){
+  /* some CSS here */
+    .booking_tab{
+    width: 100%;
+        overflow-x: auto;
+    
+    }
+}
+    
+     @media screen and (min-width: 1360px){
+  /* some CSS here */
+    .booking_tab{
+    width: 100%;
+        overflow-x: auto;
+    
+    }
+}
+     /* device width ends */
+    
+    
+

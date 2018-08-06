@@ -1,0 +1,76 @@
+package com.connecticus.admin.service;
+
+import java.util.List;
+
+import com.connecticus.admin.dto.ChartDataDto;
+import com.connecticus.admin.dto.LogfileDTO;
+import com.connecticus.admin.dto.ServiceLogDto;
+import com.connecticus.admin.model.FailureLogModel;
+import com.connecticus.admin.model.ManagerModel;
+import com.connecticus.admin.model.cityModel;
+import com.connecticus.admin.model.deptModel;
+import com.connecticus.admin.model.nameModel;
+import com.connecticus.admin.model.versionModel;
+
+public interface AdminService {
+	
+
+
+	public String EmailService(String emailBody, String configurationString, String emailId, String password);
+
+	 /**
+	   * method for save FailurLog.
+	   * @param args emailBody. emailBody contain conversation of bot.
+	   * @return Nothing.
+	   */
+	public void FailureLog(String emailBody);
+	
+	 /**
+	   * method for return failureLogList excepted completed and rejected.
+	   * @param 
+	   * @return failureLogList excepted completed and rejected.
+	   */
+	public List<FailureLogModel> getFailureLogList();
+	
+	/**
+	   * method for updating action status and remark 
+	   * @param accepted actionStatus and remark pass it in model
+	   * @return if record updated it return true else return false
+	   */
+	public boolean updateFailureLogRecord(FailureLogModel failureLogModel);
+	
+	/**
+	   * method for getting Failure Log by id
+	   * @param Failure log Id
+	   * @return failure log model
+	   */
+	public FailureLogModel getFailureLogById(String id);
+	
+	/**
+	   * method for return failureLogList only which action status completed and rejected.
+	   * @param 
+	   * @return failureLogList only completed and rejected.
+	   */
+	public List<FailureLogModel> getFailureLogCompletedRejectedList();
+	
+	/**
+	   * method for get count of each service call and show in a pie chart.
+	   * @param 
+	   * @return count of each service call and service name in list.
+	   */
+	public List<ChartDataDto> getServiceLogListByCount();
+
+	public  Boolean AddfilereadData(List<LogfileDTO> logfileDTOsList);
+	//Boolean AddfilereadData(LogfileDTO logfileDTO);
+
+	List<versionModel> getAllversionRecord();
+
+	List<nameModel> getAllnameRecord();
+
+	List<cityModel> getAllcityRecord();
+
+	List<deptModel> getAlldeptRecord();
+
+	List<ManagerModel> getAllManagerRecord();
+
+}

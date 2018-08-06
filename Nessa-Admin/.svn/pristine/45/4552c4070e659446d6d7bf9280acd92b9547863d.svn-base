@@ -1,0 +1,3 @@
+hostname=localhost:27017
+database=servicenowdb
+filenamepath=E:\\aaaaa\\May_activity.log

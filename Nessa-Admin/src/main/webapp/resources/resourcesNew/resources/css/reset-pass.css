@@ -1,0 +1,38 @@
+.cd-tabs{
+margin-left: 2%;
+}
+
+.page-heading{
+font-size: 30px;
+    color: #dd4166;
+}
+
+.input-label{
+    float: left;
+width: 250px;
+}
+
+
+
+.verify-btn{
+background: #dd4166;
+    padding: 0px 5px 1px 7px;
+    color: white;
+    border-radius: 5px;
+}
+
+.input-field .email{
+float: left;
+    margin-right: 20px;
+}
+
+.update{
+margin-left: 250px;
+}
+
+.update-btn{
+background: #dd4166;
+    padding: 10px 45px 10px 45px;
+    color: white;
+    border-radius: 5px;
+}

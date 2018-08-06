@@ -1,0 +1,38 @@
+package com.connecticus.admin.dao;
+
+import java.util.List;
+
+import com.connecticus.admin.dto.ChartDataDto;
+import com.connecticus.admin.model.FailureLogModel;
+import com.connecticus.admin.model.LogfileModel;
+import com.connecticus.admin.model.ManagerModel;
+import com.connecticus.admin.model.cityModel;
+import com.connecticus.admin.model.deptModel;
+import com.connecticus.admin.model.nameModel;
+import com.connecticus.admin.model.versionModel;
+
+public interface AdminDao {
+
+	Boolean saveFailureLog(FailureLogModel failureLogModel);
+
+	List<ChartDataDto> getListServiceNameByGroup();
+
+	List<FailureLogModel> getFailureLogList();
+
+	FailureLogModel getFailureLogByI(String id);
+
+	void updateFailureLog(FailureLogModel failureLogModel);
+
+	  boolean AddfilereadData(LogfileModel logfileModel);
+
+	List<versionModel> getAllversionRecord();
+
+	List<nameModel> getAllnameRecord();
+
+	List<cityModel> getAllcityRecord();
+
+	List<deptModel> getAlldeptRecord();
+
+	List<ManagerModel> getAllManagerRecord();
+
+}

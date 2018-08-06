@@ -1,0 +1,6 @@
+adminname=uid=admin,ou=system
+adminpassword=secret
+searchBase=,ou=users,ou=system
+ldapURL=LDAP://localhost:10389
+vendormailid=actiontracker1975@gmail.com
+password=sheetaljadhav

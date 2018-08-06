@@ -1,0 +1,63 @@
+package com.connecticus.admin.init;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
+
+import com.connecticus.admin.init.ServiceLogFilter;
+
+public class CorsFilter implements Filter {
+/*
+	 @Bean
+		public ServiceLogFilter myFilter() {
+	    	System.out.println("#######################vaibhav testing ");
+			ServiceLogFilter myFilter = new ServiceLogFilter();
+			    System.out.println("#######################vaibhav testing "+ myFilter);
+		    //initialization ...
+		    return myFilter;
+		}*/
+		
+	
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    	
+
+    }
+   // private static final Logger slf4jLogger = LoggerFactory.getLogger(CorsFilter.class);
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    	try{    	
+    	System.err.println("IN cors filter");
+    	String path = ((HttpServletRequest)servletRequest).getRequestURI();
+    	System.err.println("URL "+path);
+    	//slf4jLogger.error("IN CORS FILTER URL: "+path);
+    	HttpServletResponse response = (HttpServletResponse) servletResponse;
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, HEAD, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+        filterChain.doFilter(servletRequest, servletResponse);
+        } catch (Exception e) {
+        	//slf4jLogger.error("Error",e);
+    		e.printStackTrace();
+    	}
+    }
+    
+   
+
+    @Override
+    public void destroy() {
+
+    }
+
+}

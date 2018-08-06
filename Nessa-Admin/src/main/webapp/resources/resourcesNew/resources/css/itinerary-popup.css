@@ -1,0 +1,443 @@
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog > div {
+    width: 350px;
+    
+    position: relative;
+    margin: 6% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover {
+    background: #dd4166;
+}
+
+.modalDialog11 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog11:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog11 > div {
+    width: 350px;
+    position: relative;
+    margin: 6% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+.modalDialog1 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog1:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog1 > div {
+    width: 400px;
+    height:150px;
+    position: relative;
+    margin: 6% auto;
+    padding: 35px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+
+
+.modalDialog2 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog2:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog2 > div {
+     width: 400px;
+    height: 150px;
+    position: relative;
+    margin: 16% auto;
+    padding: 45px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+
+
+
+
+.modalDialog3 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog3:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog3 > div {
+    width: 300px;
+    position: relative;
+    margin: 6% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+
+
+
+.modalDialog4 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog4:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog4 > div {
+    width: 400px;
+    height: 150px;
+    position: relative;
+    margin: 16% auto;
+    padding: 45px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+
+
+.modalDialog5 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog5:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog5 > div {
+   width: 400px;
+    height: 180px;
+    position: relative;
+    margin: 16% auto;
+    padding: 30px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+
+
+.modalDialog6 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog6:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog6 > div {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    margin: 12% auto;
+    padding: 45px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+    
+}
+
+
+
+
+.modalDialog7 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog7:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog7 > div {
+    width: 300px;
+    position: relative;
+    margin: 6% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+.modalDialog8 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog8:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog8 > div {
+    width: 300px;
+    position: relative;
+    margin: 6% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+
+.modalDialog9 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog9:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog9 > div {
+    width: 300px;
+    position: relative;
+    margin: 6% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+
+.modalDialog10 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog10:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog10 > div {
+    width: 400px;
+    height: 150px;
+    position: relative;
+    margin: 12% auto;
+    padding: 45px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+    
+}
+
+
+.modalDialog12 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog12:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog12 > div {
+    width: 350px;
+    position: relative;
+    margin: 6% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+
+
+.modalDialog13 {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog13:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog13 > div {
+    width: 3
+        350px;
+    position: relative;
+    margin: 6% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+   background: white;
+}
+

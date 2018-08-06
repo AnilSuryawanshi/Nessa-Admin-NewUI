@@ -1,0 +1,194 @@
+package com.connecticus.admin.controller;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+
+import com.connecticus.admin.dto.LogfileDTO;
+import com.connecticus.admin.service.AdminService;
+import com.google.gson.Gson;
+
+@RestController
+public class FailureLogcontroller {
+	@Autowired
+	AdminService adminService;
+	
+	private static final Logger slf4jLogger = LoggerFactory.getLogger(AdminController.class);
+	Gson gson = new Gson();
+
+
+	@RequestMapping(value = { "/testingclass" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView Presentation() {
+		ModelAndView view = new ModelAndView();
+		view.setViewName("AddUser");
+		System.out.println("Presentation page is working good ");
+		slf4jLogger.error(" IN WELCOME Presentation");
+		slf4jLogger.debug("IN WELCOME DEBUG");
+
+		return view;
+	}
+	
+	@RequestMapping(value = { "/weldone" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView hello123() {
+		ModelAndView view = new ModelAndView();
+		view.setViewName("success");
+		slf4jLogger.error(" IN WELCOME ERROR");
+		slf4jLogger.debug("IN WELCOME DEBUG");
+
+		return view;
+	}
+	
+	/*
+	@RequestMapping(value = {"/fileread"}, method = RequestMethod.GET)
+	public String fileread() {
+		
+		 String FILENAME = "E:\\aaaaa\\May_activity.log";//log May_activity.log
+		 
+		 
+		 List<LogfileDTO> logfileDTOsList = new ArrayList<LogfileDTO>();
+			try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
+				String sCurrentLine;
+				while ((sCurrentLine = br.readLine()) != null) {
+					System.err.println("testing OK");
+					System.err.println(sCurrentLine);
+					String[] uname = sCurrentLine.split(" ");
+					String week = uname[0];
+					String month = uname[1];
+					String date = uname[2];
+					String time = uname[3];
+					String year = uname[5];
+					String domain = uname[6];
+					String[] Doman = domain.split(":");
+					String domanname = Doman[1];
+					String user = uname[7];
+					String[] username = user.split(":");
+					String username1= username[1];
+					String task = uname[8];
+					String[] taskname = task.split(":");
+					String taskname1= taskname[1];
+					String type = uname[9];
+					String[] typename = type.split(":");
+					String typename1= typename[1];
+					System.out.println("week=="+week);
+					System.out.println("month=="+month);
+					System.out.println("date=="+date);
+					System.out.println("time=="+time);
+					System.out.println("year=="+year);
+					System.out.println("domanname=="+domanname);
+					System.out.println("username==>>"+username1);
+					System.out.println("taskname==>>"+taskname1);
+					System.out.println("typename==>>"+typename1);
+					
+					LogfileDTO logfileDTO= new LogfileDTO();
+					logfileDTO.setWeek(week);
+					logfileDTO.setMonth(month);
+					logfileDTO.setDate(date);
+					logfileDTO.setTime(time);
+					logfileDTO.setYear(year);
+					logfileDTO.setDomain(domanname);
+					logfileDTO.setUser(username1);
+					logfileDTO.setTask(taskname1);
+					logfileDTO.setType(typename1);
+					System.out.println("JSON OUTput==>>"+gson.toJson(logfileDTO));
+					logfileDTOsList.add(logfileDTO);
+					//System.out.println("Final JSON OUTput======>>"+finalJSON);
+					
+				}
+				String finalJSON = gson.toJson(logfileDTOsList);
+				//String save = AdminService.AddfilereadData(logfileDTOsList);
+				
+				
+				
+				System.out.println("Final JSON OUTput======>>"+finalJSON);
+		}catch(Exception e){
+			slf4jLogger.error("Error in failurelogcontroller view dashboard", e);
+		}
+			return gson.toJson(logfileDTOsList);
+		
+	}
+		*/
+	
+	
+	
+	
+	@RequestMapping(value = {"/fileread"}, method = RequestMethod.GET)
+	public Boolean fileread() throws IOException {
+		 Boolean flag = false;
+		 
+		 Properties Proper = new Properties();
+			InputStream inputStream = null;
+			inputStream = getClass().getClassLoader().getResourceAsStream("mongodbconnection.properties");
+			Proper.load(inputStream);
+			String filenamepath = Proper.getProperty("filenamepath");			
+		 //log file path
+		 String FILENAME = filenamepath;//log May_activity.log
+		 List<LogfileDTO> logfileDTOsList = new ArrayList<LogfileDTO>();
+			try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
+				String sCurrentLine;
+				while ((sCurrentLine = br.readLine()) != null) {
+					String[] uname = sCurrentLine.split(" ");
+					String week = uname[0];
+					String month = uname[1];
+					String date = uname[2];
+					String time = uname[3];
+					String year = uname[5];
+					String domain = uname[6];
+					String[] Doman = domain.split(":");
+					String domanname = Doman[1];
+					String user = uname[7];
+					String[] userna = user.split(":");										
+					if (userna.length <= 1)
+					     continue;					    
+					String username1= userna[1];
+					String task = uname[8];
+					String[] taskname = task.split(":");
+					String taskname1= taskname[1];
+					String type = uname[9];
+					String[] typename = type.split(":");
+					String typename1= typename[1];					
+				
+		/*			System.out.println("date====>"+week+","+date+":"+month+":"+year);
+					System.out.println("time=="+time);
+					System.out.println("domanname=="+domanname);
+					System.out.println("username==>>"+username1);
+					System.out.println("taskname==>>"+taskname1);
+					System.out.println("typename==>>"+typename1);
+					System.out.println("its working good");*/
+					LogfileDTO logfileDTO= new LogfileDTO();
+
+					logfileDTO.setDate(week+","+date+":"+month+":"+year);
+					logfileDTO.setTime(time);
+					logfileDTO.setDomain(domanname);
+					logfileDTO.setUser(username1);
+					logfileDTO.setTask(taskname1);
+					logfileDTO.setType(typename1);
+					logfileDTOsList.add(logfileDTO);
+					System.out.println("JSON OUTput==>>"+gson.toJson(logfileDTO));	
+				}
+				
+			flag = adminService.AddfilereadData(logfileDTOsList);
+			System.out.println("save controler test1");
+				
+		}catch(Exception e){
+			e.printStackTrace();
+			slf4jLogger.error("Error in failurelogcontroller view dashboard", e);
+		}
+			//return gson.toJson(logfileDTOsList);
+			return flag;
+		
+	}
+		
+}

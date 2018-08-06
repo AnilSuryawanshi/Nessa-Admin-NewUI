@@ -1,0 +1,228 @@
+.side_bar{
+width: 9%;
+float: left;
+}
+
+
+
+
+.first_row{
+    line-height: 50px;
+display: inline-flex;
+
+}
+
+.second_row{
+display: inline-flex;
+    line-height: 35px;
+
+}
+
+
+.work_queue_div{
+width: 70%;
+   margin-top: 7%;
+    margin-left: 5%;
+    float: left;
+}
+
+.number{
+font-size: 25px;
+    color: #dd4166;
+}
+
+.progress_highlight{
+float: right;
+    position: relative;
+    
+}
+
+.plan_itinerary_btn{
+background: #dd4166;
+width: 150px;
+    height: 35px;
+    margin-left: 150px;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+    border-radius: 5px;
+    margin-top: 2%;
+    position: absolute;
+   
+}
+
+
+.work_queue_head{
+color: #dd4166;
+    font-size: 25px;
+}
+
+
+.enquiry_id{
+padding-left: 20px;
+}
+
+
+.destinations{
+padding-left: 20px;
+}
+
+
+.enquiry_summary{
+padding-left: 20px;
+}
+
+
+.date_of_enquiry{
+padding-left: 20px;
+}
+
+
+.travel_date{
+padding-left: 20px;
+}
+
+.status{
+padding-left: 20px;
+}
+
+
+
+.e_id{
+padding-left: 20px;
+}
+
+
+.destinations_workq{
+padding-left: 20px;
+}
+
+
+.e_summary{
+padding-left: 25px;
+}
+
+
+.doe{
+padding-left: 35px;
+}
+
+
+.t_date{
+padding-left: 45px;
+}
+
+.tab_status{
+padding-left: 35px;
+}
+
+
+
+.plan_itinerary{
+padding: 20px;;
+    text-align: center;
+    color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+
+}
+
+.work_queue{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+.leads{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+.payment_tracking{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+.reports{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+.learn_more{
+padding: 20px;;
+    text-align: center;
+color: #4c4c4c;
+    border-bottom-style: solid;
+    border-bottom-color: #4c4c4c;
+    border-bottom-width: 2px;
+}
+
+
+.plan_itinerary:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.work_queue:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.leads:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.payment_tracking:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.reports:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.learn_more:hover{
+color: #dd4166;
+    border-bottom-color: #dd4166;
+}
+
+.banner{
+border-style: solid;
+    border-color: #4c4c4c;
+width: 15%;
+    position: relative;
+    float: right;
+    color: #4c4c4c;
+    padding: 30px;
+   
+    
+}
+
+.progress_highlight_head{
+font-size: 25px;
+
+}
+
+
+.destination_workq{
+margin-left: 20px;
+}
+

@@ -1,0 +1,309 @@
+#sec1{
+margin: 2%;
+    margin-left:4%;
+
+}
+#name{
+font-size: 25px;
+    color: #dd4166;
+    float: left;
+}
+.row
+{
+display: inline-flex;
+ margin-top: 2%;
+   width:100%
+}
+
+.spacing{
+
+margin-left: 40%;
+
+}
+
+
+.image{
+ width: 140px;
+    height: 140px;
+    background: silver;
+    position: relative;
+    margin-left: 2%;
+   
+}
+
+.image1{
+ width: 140px;
+    height: 140px;
+   
+    position: relative;
+    margin-left: 2%;
+   
+}
+
+
+
+
+.sort_btn{
+color:black;
+  
+    
+}
+
+.sort_btn{
+  background-color: #dd4166;
+    color:white;
+    border-radius: 5px;
+     
+  
+}
+
+.chk{
+position: relative;
+   
+}
+
+.detail{
+margin-left: 2%;
+    width: 350px;
+   
+   
+
+}
+
+.chkio{
+margin-left: 5%;
+    position: relative;
+    width: 320px;
+}
+
+.cst{
+margin-left: 8%;
+width:140px;
+}
+
+.srt_btn{
+background:#dd4166; border-radius:5px;color:white;width:120px;height:35px;
+    text-align: center;
+    padding-top: 10px;
+   
+ 
+
+}
+
+hr{
+margin-top: 25px;
+   
+    
+}
+.add_own{
+    padding: 5px;
+background: silver;
+    width: 200px;
+    margin-left: 30%;
+
+}
+
+.add_own_txt{
+line-height: 10px;
+     
+}
+
+a_own{
+color:#dd4166;
+}
+
+
+.bottom_{
+display:inline-flex;
+    width: 100%;
+    position: relative;
+   
+    
+}
+.total{
+position: relative;
+    float: right;
+    display: block;
+    margin-left: 69%;
+}
+
+.srt_btn{
+
+margin-left:100px;
+}
+
+.btm_btn{
+background: #dd4166;
+    border-radius: 5px;
+    height: 35px;
+    width: 120px;
+    margin-left: 10%;
+    padding: 10px;
+    text-align: center;
+
+}
+
+a{
+color:white;
+}
+
+.btm_btn1{
+background: #dd4166;
+    border-radius: 5px;
+    height: 35px;
+    width: 150px;
+  
+    padding: 10px;
+    text-align: center;
+
+}
+
+.btm_btn2{
+background: #dd4166;
+    border-radius: 5px;
+    height: 35px;
+    width: 200px;
+    margin-left: 100%;
+    margin-right: 20%;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.btm_btn3{
+background: #dd4166;
+    border-radius: 5px;
+    height: 35px;
+    width: 200px;
+    float: left;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    
+
+}
+
+.bottom_1{
+margin-left: 3%;
+margin-top: 3%;
+    display:inline-flex;
+    width: 100%;
+    
+}
+
+#triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	border-bottom: 70px solid white;
+      margin-top: 10%;
+    margin-left: 20%;
+  
+}
+
+.warnin{
+    text-align: center;
+    font-size:12px;
+margin: 2%;
+
+}
+
+
+.note{
+margin:3%;
+
+}
+
+
+.btm_btn1{
+  margin-left: 105%;
+    position: relative;
+    
+}
+
+
+.btm_btn2{
+ margin-left: 328px;
+}
+
+.btm_btn3{
+margin-left: 200px;
+
+}
+
+
+.book_btn{
+background: #dd4166;
+width: 200px;
+   padding: 5px;
+    padding-top: 8px;
+    float: left;
+    text-align: center;
+  
+text-transform: uppercase;
+    border-radius: 5px;
+    margin-left: 15%;
+  height: 35px;
+}
+
+
+.book_btn:hover{
+background: #d03157;
+}
+
+
+.bottom_bottons{
+    width: 100%;
+position: relative;
+    float: left;
+    
+}
+
+
+.btm_btn_back{
+margin-top: 2%;
+    background: #dd4166;
+width: 120px;
+   padding: 5px;
+    padding-top: 9px;
+    float: left;
+    text-align: center;
+  
+text-transform: uppercase;
+    border-radius: 5px;
+    margin-left: 15%;
+  height: 35px;
+
+}
+
+.btm_btn_cancel{
+margin-top: 2%;
+    background: #dd4166;
+width: 120px;
+   padding: 5px;
+    padding-top: 9px;
+    float: left;
+    text-align: center;
+  
+text-transform: uppercase;
+    border-radius: 5px;
+    margin-left: 56%;
+  height: 35px;
+}
+
+
+
+.spcl_rqst{
+margin-top: 15%;
+
+}
+
+
+
+.crn{
+font-size: 15px;
+    float: left;
+   margin-left: 4%;
+    position: absolute;
+}

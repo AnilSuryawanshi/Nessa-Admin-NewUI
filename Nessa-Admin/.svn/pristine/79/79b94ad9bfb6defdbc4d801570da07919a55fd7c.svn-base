@@ -1,0 +1,645 @@
+package com.connecticus.admin.controller;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.*;
+
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.naming.Context;
+import javax.naming.NamingEnumeration;
+import javax.naming.NamingException;
+import javax.naming.ldap.InitialLdapContext;
+import javax.naming.ldap.LdapContext;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import org.json.JSONException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.connecticus.admin.dto.AdduserDTO;
+import com.connecticus.admin.dto.ChartDataDto;
+import com.connecticus.admin.dto.Ldapuser;
+import com.connecticus.admin.model.FailureLogModel;
+import com.connecticus.admin.service.AdminService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+//ldap import
+import java.util.Hashtable;
+import java.util.Properties;
+import java.util.jar.Attributes;
+import javax.naming.Context;
+import javax.naming.NamingException;
+import javax.naming.directory.Attribute;
+import javax.naming.directory.BasicAttribute;
+import javax.naming.directory.BasicAttributes;
+import javax.naming.directory.DirContext;
+import javax.naming.directory.InitialDirContext;
+import javax.naming.directory.ModificationItem;
+import javax.naming.directory.SearchControls;
+import javax.naming.directory.SearchResult;
+
+/**
+ * For Email Sending functionality ,logging of service call and failure logs
+ * 
+ * @author Ajinkya
+ * 
+ */
+@RestController
+public class AdminController {
+
+	@Autowired
+	AdminService adminService;
+
+	private static final Logger slf4jLogger = LoggerFactory.getLogger(AdminController.class);
+
+	/**
+	 * For Loading Welcome Page
+	 * 
+	 * @return view
+	 */
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	public ModelAndView loadWelcomePage() {
+
+		ModelAndView view = new ModelAndView();
+		view.setViewName("success");
+		slf4jLogger.info(" IN WELCOME");
+
+		return view;
+	}
+	
+	@RequestMapping(value ="/getaddUser", method = RequestMethod.GET)
+	public ModelAndView Adduser() {
+
+		ModelAndView view = new ModelAndView();
+		view.setViewName("AddUser");
+		slf4jLogger.info(" IN WELCOME");
+
+		return view;
+	}
+	
+	
+	
+	/**
+	 * For Sending Email if emailServiceActive is true in configuration file and
+	 * record log to database if failureLogService is true in configuration
+	 * file.
+	 * 
+	 * @return true
+	 */
+	@RequestMapping(value = "/sendMail", method = RequestMethod.POST)
+	public @ResponseBody String recordLog(ServletRequest request, @RequestBody String emailBody) {
+
+		slf4jLogger.info("IN Admin Controller: recordLog ");
+		System.out.println("emailBody::"+emailBody);
+		try {
+
+			Properties prop = new Properties();
+			prop.load(new FileInputStream(
+					new File(request.getServletContext().getRealPath("/WEB-INF/emailConfiguration.properties"))));
+
+			String emailServiceActive = prop.getProperty("emailServiceActive");
+			String failureLogService = prop.getProperty("failureLogService");
+
+			if (emailServiceActive.equals("true")) {
+               System.out.println("in mail controller:");
+				String configurationProperty = prop.getProperty("configuration");
+				String emailId = prop.getProperty("userName");
+				String password = prop.getProperty("password");
+
+				adminService.EmailService(emailBody, configurationProperty, emailId, password);
+			}
+			if (failureLogService.equals("true")) {
+
+				adminService.FailureLog(emailBody);
+			}
+
+
+			return "true"; 
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			slf4jLogger.error("Error in AdmniController", e);
+			return "false";
+		}
+	}
+
+	@RequestMapping(value = "/getFailureLog", method = RequestMethod.GET)
+	ModelAndView getFailureLog() {
+		ModelAndView mv = new ModelAndView("FailureLogList");
+		try {
+
+			List<FailureLogModel> failureLogList = adminService.getFailureLogList();
+			mv.addObject("failureLogList", failureLogList);
+			return mv;
+		} catch (Exception e) {
+
+			slf4jLogger.error("Error in AdmniController fetch failureLogList", e);
+			return mv;
+		}
+
+	}
+
+	
+	/// end vaibhav change
+	
+	@RequestMapping(value = "/updateRemark", method = RequestMethod.POST)
+	boolean updateFailureLogRecord(@RequestBody String failureLogModel) {
+
+		try {
+
+			FailureLogModel logModel = new FailureLogModel();
+			ObjectMapper failureLogObj = new ObjectMapper();
+			logModel = failureLogObj.readValue(failureLogModel, FailureLogModel.class);
+
+			FailureLogModel failureLogModelData = adminService.getFailureLogById(logModel.getId());
+
+			failureLogModelData.setActionStatus(logModel.getActionStatus());
+			failureLogModelData.setRemark(logModel.getRemark());
+
+			boolean returndata = adminService.updateFailureLogRecord(failureLogModelData);
+
+			return returndata;
+		} catch (Exception e) {
+
+			slf4jLogger.error("Error in AdmniController update failureLog", e);
+			return false;
+		}
+	}
+
+	@RequestMapping(value = "/getFailureLogComp", method = RequestMethod.GET)
+	ModelAndView getFailureLogCompletedRejected() {
+		ModelAndView mv = new ModelAndView("FailureComRej");
+		try {
+
+			List<FailureLogModel> failureLogList = adminService.getFailureLogCompletedRejectedList();
+			mv.addObject("failureLogList", failureLogList);
+			
+		} catch (Exception e) {
+
+			slf4jLogger.error("Error in AdmniController fetch failureLogList", e);
+		}
+			return mv;
+	}
+	
+	@RequestMapping(value = {"/dashboard","/"}, method = RequestMethod.GET)
+	ModelAndView viewDashboard() {
+		ModelAndView mv = new ModelAndView("DashBoard");
+		try{
+		List<ChartDataDto> serviceLogList = adminService.getServiceLogListByCount();
+		
+		//Collections.sort(serviceLogList, new ChartDataDto());
+		mv.addObject("serviceLogList",serviceLogList);
+		}catch(Exception e){
+			slf4jLogger.error("Error in AdmniController view dashboard", e);
+		}
+		return mv;
+	}
+	
+	// save all record
+	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
+	public ModelAndView saveQuestionAndAnswer(@ModelAttribute AdduserDTO adduserDTO) {
+		ModelAndView mv = new ModelAndView();
+		boolean flag = false;
+		try {
+			String fname = adduserDTO.getFullname();
+			String uid = adduserDTO.getUid();
+			String email = adduserDTO.getEmail();
+			String mobile = adduserDTO.getMobile();
+			String passwd = adduserDTO.getPassword();
+			String cpasswd = adduserDTO.getCpassword();
+			String role = adduserDTO.getRole();
+
+			System.out.println("full name===>" + fname);
+			System.out.println("uid name===>" + uid);
+			System.out.println("email===>" + email);
+			System.out.println("mobile===>" + mobile);
+			System.out.println("passwd===> " + passwd);
+			System.out.println("cpasswd==>" + cpasswd);
+			System.out.println("role==>" + role);
+
+			Properties LDAPconnection = ldapconnection();
+
+			// for user
+			if (role.equals("User")) {
+
+				System.out.println("=====>>user role is working good");
+
+				String entryDN = "uid=" + uid + ",ou=users,ou=system";
+				// String entryDN = "uid="+uid+",uid=admin,ou=system";
+				Attribute cn = new BasicAttribute("cn", fname);
+				Attribute sn = new BasicAttribute("sn", uid);
+				Attribute mail = new BasicAttribute("mail", email);
+				Attribute phone = new BasicAttribute("mobile", mobile);
+				Attribute UserPassword = new BasicAttribute("userPassword", passwd);
+				Attribute displayName = new BasicAttribute("displayName", passwd);
+				Attribute oc = new BasicAttribute("objectClass");
+				oc.add("top");
+				oc.add("person");
+				oc.add("organizationalPerson");
+				oc.add("inetOrgPerson");
+				DirContext ctx = null;
+				System.out.println("connection ok for testing11 ");
+				try {
+					// get a handle to an Initial DirContext
+					ctx = new InitialDirContext(LDAPconnection);
+					// build the entry
+					BasicAttributes entry = new BasicAttributes();
+					entry.put(cn);
+					entry.put(sn);
+					entry.put(mail);
+					entry.put(phone);
+					entry.put(UserPassword);
+					entry.put(oc);
+					entry.put(displayName);
+					// Add the entry
+					ctx.createSubcontext(entryDN, entry);
+					System.out.println("AddUser: added entry " + entryDN + ".");
+					flag = true;
+					System.out.println("user add flag true");
+					mv.setViewName("redirect:dashboard");
+				} catch (NamingException e) {
+					flag = false;
+					System.out.println("user add flag false");
+					mv.setViewName("redirect:errorPage");
+					System.err.println("AddUser: error adding " + "entry." + e);
+					System.out.println("connection fail  ");
+
+				}
+
+			} else {
+				System.out.println("=====>>Admin role is working good");
+
+				// String entryDN = "uid="+uid+",ou=users,ou=system";
+				String entryDN = "uid=" + uid + ",uid=admin,ou=system";
+				Attribute cn = new BasicAttribute("cn", fname);
+				Attribute sn = new BasicAttribute("sn", uid);
+				Attribute mail = new BasicAttribute("mail", email);
+				Attribute phone = new BasicAttribute("mobile", mobile);
+				Attribute UserPassword = new BasicAttribute("userPassword", passwd);
+				Attribute displayName = new BasicAttribute("displayName", passwd);
+				Attribute oc = new BasicAttribute("objectClass");
+				oc.add("top");
+				oc.add("person");
+				oc.add("organizationalPerson");
+				oc.add("inetOrgPerson");
+				DirContext ctx = null;
+				System.out.println("connection ok for testing11 ");
+				try {
+					// get a handle to an Initial DirContext
+					ctx = new InitialDirContext(LDAPconnection);
+					// build the entry
+					BasicAttributes entry = new BasicAttributes();
+					entry.put(cn);
+					entry.put(sn);
+					entry.put(mail);
+					entry.put(phone);
+					entry.put(UserPassword);
+					entry.put(oc);
+					entry.put(displayName);
+					// Add the entry
+					ctx.createSubcontext(entryDN, entry);
+					mv.setViewName("redirect:dashboard");
+					System.out.println("AddUser: added entry " + entryDN + ".");
+					flag = true;
+					System.out.println("admin add flag true");
+				} catch (NamingException e) {
+					flag = false;
+					System.out.println("admin add flag false");
+					mv.setViewName("redirect:errorPage");
+					System.err.println("AddUser: error adding entry." + e);
+					System.out.println("connection fail  ");
+				}
+			}
+			System.out.println("testing flag by add user=====" + flag);
+			if (flag) {
+				/*--------------- start change by vaibhav mail send new code--------------*/
+				Properties prop = new Properties();
+				InputStream inputStream = null;
+				inputStream = getClass().getClassLoader().getResourceAsStream("OtpOnEmails.properties");
+				prop.load(inputStream);
+
+				String emailId = prop.getProperty("userMailId");
+				List<String> arr = new ArrayList<String>();
+
+				arr = Arrays.asList(emailId.split(","));
+
+				for (int i = 0; i < arr.size(); i++) {
+					System.out.println(" -->" + arr.get(i));
+				}
+				try {
+					// mail send code
+					Properties prop1 = new Properties();
+					InputStream inputStream1 = null;
+					inputStream1 = getClass().getClassLoader().getResourceAsStream("ldapapplication.properties");
+					prop1.load(inputStream1);
+					String mailId = prop1.getProperty("vendormailid");
+					String password = prop1.getProperty("password");
+					String subject = "New Ldap user";
+					String body = "Dear Admin " + "\n" + " \n"
+							+ "This is to inform you that New LDAP user has been Created Please see below information "
+							+ " \n" + "\nFullName : " + fname + " \n" + "User ID  : " + uid + " \n" + "Email ID : "
+							+ email + " \n" + "Mobile   : " + mobile + " \n" + "ServiceNow Password : " + passwd + " \n"
+							+ "Role : " + role + " \n" + "\n Please create ServiceNow user for " + fname
+							+ "   User ID  : " + uid + "   ServiceNow Password : " + passwd + ". \n" +
+
+							"https://dev23287.service-now.com/nav_to.do?uri=%2Fsys_user_list.do%3Fsysparm_userpref_module%3D56e8b9ce3718200044e0bfc8bcbe5d00%26sysparm_clear_stack%3Dtrue%26sysparm_clear_stack%3Dtrue%26sysparm_clear_stack%3Dtrue"
+							+ " \n " + " \n Thanks \n" + "Support Team. ";
+					Properties props = System.getProperties();
+					String host = "smtp.gmail.com";
+					props.put("mail.smtp.starttls.enable", "true");
+					props.put("mail.smtp.host", host);
+					props.put("mail.smtp.user", mailId);
+					props.put("mail.smtp.password", password);
+					props.put("mail.smtp.port", "587");
+					props.put("mail.smtp.auth", "true");
+					Session session = Session.getDefaultInstance(props);
+					MimeMessage message = new MimeMessage(session);
+					message.setFrom(new InternetAddress(mailId));
+
+					InternetAddress[] addressTo = new InternetAddress[arr.size()];
+					System.out.println(addressTo.length);
+					int counter = 0;
+					for (String recipient : arr) {
+						addressTo[counter] = new InternetAddress(recipient);
+						counter++;
+					}
+					message.addRecipients(Message.RecipientType.TO, addressTo);
+					message.setSubject(subject);
+					message.setText(body);
+					Transport transport = session.getTransport("smtp");
+					transport.connect(host, mailId, password);
+					transport.sendMessage(message, message.getAllRecipients());
+					transport.close();
+					System.out.println("mail send Successfully ");
+
+				} catch (Exception e) {
+					e.printStackTrace();
+					// close mail send new password
+					System.out.println("mail send fails");
+				}
+				/*--------------- start change by vaibhav mail send new code--------------*/
+			}
+		} catch (Exception e) {
+			System.out.println("testing login add user");
+			// logger.error("Error in save record", e);
+			e.printStackTrace();
+			mv.setViewName("redirect:errorPage");
+		}
+		return mv;
+	}
+
+	@RequestMapping(value = "/errorPage", method = RequestMethod.GET)
+	public ModelAndView errorPage() {
+
+		ModelAndView view = new ModelAndView();
+		view.setViewName("errorpage");
+		slf4jLogger.info(" IN errorpage");
+
+		return view;
+	}
+
+	@RequestMapping(value = "/checkHello", method = RequestMethod.POST)
+	boolean checkHelloMethod(@RequestBody Object object) {
+
+		System.out.println("Hello world");
+		return false;
+	}
+
+	@RequestMapping(value = "/allgetldap", method = RequestMethod.GET)
+	ModelAndView allgetldap() {
+		ModelAndView mv = new ModelAndView("Allgetldap");
+		try {
+			List<Ldapuser> allLDapuserList = new ArrayList<Ldapuser>();
+			try {
+				Properties LDAPconnection = ldapconnection();
+				DirContext context = new InitialDirContext(LDAPconnection);
+				String searchFilter = "(objectClass=inetOrgPerson)";
+				// String[] requiredAttributes = {"cn","mobile"};
+				String[] requiredAttributes = { "sn", "cn", "mail", "mobile", "uid", "displayName" };
+
+				SearchControls controls = new SearchControls();
+				controls.setSearchScope(SearchControls.SUBTREE_SCOPE);
+				controls.setReturningAttributes(requiredAttributes);
+				NamingEnumeration users = context.search("ou=users,ou=system", searchFilter, controls);
+
+				SearchResult searchResult = null;
+				String fullName = "";
+				String mail = "";
+				String mobileArray = "";
+				String uid = "";
+				String displayName = "";
+				while (users.hasMore()) {
+
+					searchResult = (SearchResult) users.next();
+					javax.naming.directory.Attributes attr = searchResult.getAttributes();
+					fullName = attr.get("cn").get(0).toString();
+
+					uid = attr.get("uid").get(0).toString();
+					mail = attr.get("mail").get(0).toString();
+					mobileArray = attr.get("mobile").get(0).toString();
+					displayName = attr.get("displayName").get(0).toString();
+
+					System.out.println("servicenow password: ========================= " + displayName);
+					System.out.println("Full Name: = " + fullName);
+					System.out.println("Email ID= " + mail);
+					System.out.println("UID Name= " + uid);
+					System.out.println("Mobile No = " + mobileArray);
+					Ldapuser ldapuser = new Ldapuser();
+					if (fullName != "") {
+						ldapuser.setName(fullName);
+						System.out.println("Full Name: = " + fullName);
+					}
+					if (uid != "") {
+						ldapuser.setUid(uid);
+						System.out.println("UID Name= " + uid);
+					}
+					if (mail != "") {
+						ldapuser.setMail(mail);
+						System.out.println("Email ID= " + mail);
+					}
+					if (mobileArray != "") {
+						ldapuser.setMobile(mobileArray);
+						System.out.println("mobileArray No = " + mobileArray);
+					}
+
+					allLDapuserList.add(ldapuser);
+				}
+				mv.addObject("allLDapuserList", allLDapuserList);
+				return mv;
+			} catch (NamingException e) {
+				e.printStackTrace();
+			}
+
+			return mv;
+		} catch (Exception e) {
+
+			slf4jLogger.error("Error in AdmniController fetch failureLogList", e);
+			return mv;
+		}
+	}
+
+	// remove record by id
+	@RequestMapping(value = "/deleteuserRecord/{uid}", method = RequestMethod.GET)
+	public ModelAndView deleteuserRecord(@PathVariable("uid") String uid) {
+		ModelAndView mv = new ModelAndView();
+		try {
+			Properties LDAPconnection = ldapconnection();
+			DirContext ctx = new InitialDirContext(LDAPconnection);
+			ctx.destroySubcontext("uid=" + uid + ",ou=users,ou=system");
+			System.out.println("delete successfuly ");
+
+			mv.setViewName("redirect:/allgetldap");
+			return mv;
+
+		} catch (Exception e) {
+			// e.printStackTrace();
+			// return ("redirect:/errorPage");
+			// mv.setViewName("redirect:allgetldap");
+		}
+		return mv;
+	}
+
+	// edit record by id all 4 field
+	@RequestMapping(value = "/editLdapRecord/{uid}", method = RequestMethod.GET)
+	public ModelAndView editQuesAnsRecord(@PathVariable("uid") String uid) {
+		ModelAndView mv = new ModelAndView("EditLdapRecord");
+		try {
+
+			try {
+				Properties LDAPconnection = ldapconnection();
+				DirContext context = new InitialDirContext(LDAPconnection);
+				String searchFilter = "(objectClass=inetOrgPerson)";
+				// String[] requiredAttributes = {"cn","mobile"};
+				String[] requiredAttributes = { "sn", "cn", "mail", "mobile", "uid" };
+
+				SearchControls controls = new SearchControls();
+				controls.setSearchScope(SearchControls.SUBTREE_SCOPE);
+				controls.setReturningAttributes(requiredAttributes);
+				NamingEnumeration users = context.search("uid=" + uid + ",ou=users,ou=system", searchFilter, controls);
+
+				SearchResult searchResult = null;
+				String commonName = "";
+				String mail = "";
+				String mobileArray = "";
+				// String uid = null;
+				while (users.hasMore()) {
+
+					searchResult = (SearchResult) users.next();
+					javax.naming.directory.Attributes attr = searchResult.getAttributes();
+					commonName = attr.get("cn").get(0).toString();
+
+					uid = attr.get("uid").get(0).toString();
+					mail = attr.get("mail").get(0).toString();
+					mobileArray = attr.get("mobile").get(0).toString();
+					System.out.println("Full Name: = " + commonName);
+					System.out.println("Email ID= " + mail);
+					System.out.println("UID Name= " + uid);
+					System.out.println("Mobile No = " + mobileArray);
+					Ldapuser ldapuser = new Ldapuser();
+					ldapuser.setName(commonName);
+					ldapuser.setUid(uid);
+					ldapuser.setMail(mail);
+					ldapuser.setMobile(mobileArray);
+
+					// * mv.setViewName("redirect:/"); return mv;
+
+					mv.addObject("ldapuser", ldapuser);
+				}
+				return mv;
+			} catch (NamingException e) {
+				e.printStackTrace();
+				return mv;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+
+	// save all record
+	@RequestMapping(value = "/addedituser", method = RequestMethod.POST)
+	public ModelAndView addedituser(@ModelAttribute Ldapuser ldapuser) {
+		ModelAndView mv = new ModelAndView();
+		try {
+			String fname = ldapuser.getName();
+			String uid = ldapuser.getUid();
+			String email = ldapuser.getMail();
+			String mobile = ldapuser.getMobile();
+
+			System.out.println("full name===>" + fname);
+			System.out.println("uid name===>" + uid);
+			System.out.println("email===>" + email);
+			System.out.println("mobile===>" + mobile);
+
+			Properties LDAPconnection = ldapconnection();
+
+			DirContext ctx = new InitialDirContext(LDAPconnection);
+			ModificationItem[] mods = new ModificationItem[4];
+			Attribute mod0 = new BasicAttribute("mail", email);
+			Attribute mod1 = new BasicAttribute("mobile", mobile);
+			Attribute mod2 = new BasicAttribute("sn", uid);
+			Attribute mod3 = new BasicAttribute("cn", fname);
+			System.out.println("add successfully");
+
+			mods[0] = new ModificationItem(DirContext.REPLACE_ATTRIBUTE, mod0);
+			mods[1] = new ModificationItem(DirContext.REPLACE_ATTRIBUTE, mod1);
+			// mods[1] = new ModificationItem(DirContext.ADD_ATTRIBUTE, mod1);
+			// mods[2] = new ModificationItem(DirContext.REPLACE_ATTRIBUTE,
+			// mod2);
+			mods[2] = new ModificationItem(DirContext.REPLACE_ATTRIBUTE, mod2);
+			mods[3] = new ModificationItem(DirContext.REPLACE_ATTRIBUTE, mod3);
+			System.out.println("1234 edit successfully");
+			ctx.modifyAttributes("uid=" + uid + ",ou=users,ou=system", mods);
+
+			System.out.println("edit work  successfully");
+
+			mv.setViewName("redirect:/allgetldap");
+			return mv;
+
+		} catch (Exception e) {
+			// logger.error("Error in save record", e);
+			e.printStackTrace();
+			mv.setViewName("redirect:errorPage");
+		}
+		return mv;
+	}
+
+	public Properties ldapconnection() throws Exception {
+		try {
+			Properties prop = new Properties();
+			InputStream inputStream = null;
+			inputStream = getClass().getClassLoader().getResourceAsStream("ldapapplication.properties");
+			prop.load(inputStream);
+			Properties initilaProperties = new Properties();
+			initilaProperties.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+			initilaProperties.put(Context.PROVIDER_URL, prop.getProperty("ldapURL"));
+			initilaProperties.put(Context.SECURITY_AUTHENTICATION, "simple");
+			initilaProperties.put(Context.SECURITY_PRINCIPAL, prop.getProperty("adminname"));
+			initilaProperties.put(Context.SECURITY_CREDENTIALS, prop.getProperty("adminpassword"));
+			// TODO code application logic here
+			System.out.println("connection ok for testing11 ");
+			return initilaProperties;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+}
